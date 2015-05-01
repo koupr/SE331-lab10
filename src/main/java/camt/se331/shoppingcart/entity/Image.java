@@ -21,8 +21,8 @@ public class Image {
     @Temporal(TemporalType.TIME)
     Date created;
 
-    public Image(String fileName) {
-        this.fileName = fileName;
+    public Image() {
+
     }
 
     public Long getId() {
