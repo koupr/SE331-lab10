@@ -7,7 +7,8 @@ var labApp = angular.module('labApp', [
     'languageControllers',
     'languageServices',
     'pascalprecht.translate',
-    'shoppingCartControllers'
+    'shoppingCartControllers',
+    'flow'
 ])
 labApp.config(['$routeProvider',
   function($routeProvider) {
@@ -36,4 +37,21 @@ labApp.config(function($translateProvider){
     $translateProvider.useStorage('UrlLanguageStorage');
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');
-})
+});
+
+labApp.config(['flowFactoryProvider',function(flowFactoryProvider){
+    flowFactoryProvider.defaults={
+        target:'',
+        permanentErrors:[500,501],
+        maxChunkRetries:1,
+        chunkRetryInterval:5000,
+        simultaneousUploads:4,
+        singlefile:false
+    };
+    flowFactoryProvider.on('carchAll',function(event) {
+        console.log('catchAll', arguments);
+    });
+    //can be used with different implementation of Flow.js
+    //flowFactoryProvider.factory=fustyFlowFactory;
+
+}]);

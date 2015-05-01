@@ -31,6 +31,7 @@
     <script src="js/languageControllers.js"></script>
     <script src="js/shoppingCartController.js"></script>
     <script src="js/shoppingCartService.js"></script>
+    <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
 
 </head>
 <body>
